@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace WpfApp3
     public partial class Window1 : Window
     {
         GameTableAdapter game = new GameTableAdapter();
+        CharactersTableAdapter characters = new CharactersTableAdapter();
         public Window1()
         {
             InitializeComponent();
@@ -30,6 +32,13 @@ namespace WpfApp3
         {
             MainWindow win = new MainWindow();
             win.Show();
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string test = NameTxc.Text;
+            int Test = Convert.ToInt32(test);
+            game.InsertQuery(NameTcx.Text, NameTbx.Text, Test);
+            Game.ItemsSource = game.GetData();
         }
     }
 }

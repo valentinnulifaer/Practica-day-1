@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,12 @@ namespace WpfApp3
         {
             Window1 win = new Window1();
             win.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            characters.InsertQuery(NameTcx.Text, NameTbx.Text);
+            Characters.ItemsSource = characters.GetData();
         }
     }
 }
